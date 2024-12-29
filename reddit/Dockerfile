@@ -3,4 +3,4 @@ COPY . /app
 WORKDIR /app
 RUN pip install uv
 RUN uv sync
-CMD ["uv", "run", "src/reddit_content_creator/http_main.py"]
+CMD ["uv", "run", "run_http"]

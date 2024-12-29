@@ -18,6 +18,7 @@ dependencies = [
 [project.scripts]
 reddit_content_creator = "reddit_content_creator.main:run"
 run_crew = "reddit_content_creator.main:run"
+run_http = "reddit_content_creator.main:run_http"
 train = "reddit_content_creator.main:train"
 replay = "reddit_content_creator.main:replay"
 test = "reddit_content_creator.main:test"

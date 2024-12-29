@@ -1,6 +1,9 @@
 #!/usr/bin/env python
+import os
 import sys
 import warnings
+from flask import Flask, request, jsonify
+from waitress import serve
 
 from reddit_content_creator.crew import RedditContentCreator
 
@@ -40,7 +43,7 @@ def replay():
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
 
-def test():
+def test(): 
     """
     Test the crew execution and returns the results.
     """
@@ -53,3 +56,36 @@ def test():
 
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
+    
+def run_http():
+    serve(app, host="0.0.0.0", port=os.environ.get("PORT", 8080))
+
+# Initialize the Flask app
+app = Flask(__name__)
+
+# Define a sample route
+@app.route("/", methods=["GET"])
+def home():
+    # return index.html file
+    return app.send_static_file('index.html')
+
+# Define another route to handle POST requests
+@app.route("/", methods=["POST"])
+def data_handler():
+    try:
+        # Get JSON data from the request
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+        inputs = {
+            'subreddit': data.get('subreddit'),
+            'post_subject': data.get('post_subject')
+        }
+        result = RedditContentCreator().crew().kickoff(inputs=inputs)
+        return result.raw, 200
+        
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+  
