@@ -14,7 +14,8 @@ app = Flask(__name__)
 # Define a sample route
 @app.route("/", methods=["GET"])
 def home():
-    return jsonify({"message": "Welcome to the Reddit content creator agent!"}), 200
+    # return index.html file
+    return app.send_static_file('index.html')
 
 # Define another route to handle POST requests
 @app.route("/", methods=["POST"])
