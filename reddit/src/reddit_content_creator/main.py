@@ -4,6 +4,12 @@ import sys
 import warnings
 from flask import Flask, request, jsonify
 from waitress import serve
+import firebase_admin
+from firebase_admin import firestore
+
+if os.environ.get('USE_FIRESTORE') == 'True':
+    app = firebase_admin.initialize_app()
+    db = firestore.client()
 
 from reddit_content_creator.crew import RedditContentCreator
 
@@ -81,7 +87,15 @@ def data_handler():
             'subreddit': data.get('subreddit'),
             'post_subject': data.get('post_subject')
         }
+        
         result = RedditContentCreator().crew().kickoff(inputs=inputs)
+        
+        task_id = data.get('task_id')
+        if os.environ.get('USE_FIRESTORE') == 'True' and task_id:
+            db.collection('Tasks').document(task_id).update({
+                "postContent": result.raw,
+                "status": "completed"
+            })
         return result.raw, 200
         
 
