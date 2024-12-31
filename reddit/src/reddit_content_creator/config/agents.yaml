@@ -9,7 +9,6 @@ digital_trends_analyst:
     After studying journalism, you found your niche in online communities like Reddit, where raw stories emerge first.
     Now, as a Digital Trends Analyst, you transform internet chatter into clear, meaningful insights.
   allow_delegation: false
-  verbose: true
 
 content_creator_agent:
   role: >
@@ -24,4 +23,3 @@ content_creator_agent:
     in-depth analysis with compelling storytelling to create content that
     drives engagement and trust.
   allow_delegation: false
-  verbose: true

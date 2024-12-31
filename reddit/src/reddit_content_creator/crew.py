@@ -13,7 +13,6 @@ class RedditContentCreator():
 		return Agent(
 			config=self.agents_config['digital_trends_analyst'],
 			tools=[RedditGetTopPostsTool(), RedditGetSubredditTool()],
-			verbose=True
 		)
 	
 	@agent
@@ -44,5 +43,5 @@ class RedditContentCreator():
 		return Crew(
 			agents=self.agents,
 			tasks=self.tasks,
-			verbose=True,
+			verbose=False,
 		)
