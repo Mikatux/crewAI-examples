@@ -36,6 +36,14 @@ class RedditContentCreator():
 			context=[self.monitor_trending_news()],
 		)
 
+	@task
+	def rewrite_content(self) -> Task:
+		return Task(
+			config=self.tasks_config['rewrite_content'],
+			agent=self.content_creator_agent(),
+			context=[self.create_content()],
+		)
+
 	@crew
 	def crew(self) -> Crew:
 		"""Creates the RedditContentCreator crew"""

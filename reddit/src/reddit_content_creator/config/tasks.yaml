@@ -17,3 +17,13 @@ create_content:
   expected_output: >
     A high-quality content related to the subreddit {subreddit},
     the content should be simmilar to the mindset of the subreddit.
+
+rewrite_content:
+  description: >
+    Review this content and rewrite it in a conversational, human voice, with friendly tone that isn't colloquial.
+    Use short sentences and simple words.
+    Remove academic language, transition phrases, and corporate jargon.
+    Make it sound like someone talking to a friend in simple terms.
+    Keep the key points but strip away any unnecessary words
+  expected_output: >
+    A high-quality content in markdown format that is easy to read and understand.
