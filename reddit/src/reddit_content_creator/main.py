@@ -69,13 +69,6 @@ def run_http():
 # Initialize the Flask app
 app = Flask(__name__)
 
-# Define a sample route
-@app.route("/", methods=["GET"])
-def home():
-    # return index.html file
-    return app.send_static_file('index.html')
-
-# Define another route to handle POST requests
 @app.route("/", methods=["POST"])
 def data_handler():
     try:
