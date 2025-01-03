@@ -1,0 +1,7 @@
+synthesize_all:
+  description: >
+    You should analyse all the projects requirements, constraints, and risks and find the most common topic, niche, tag form all of this projects.
+    If you find something related you can also suggest a new project idea that merges all the related projects.
+    Projects information: {projects}
+  expected_output: >
+    A summary of the main topic, niche, tag that is common in all the projects. If needed a new project idea that merges all the related projects.

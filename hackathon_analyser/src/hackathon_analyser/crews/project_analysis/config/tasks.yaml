@@ -1,0 +1,9 @@
+summarise_project:
+  description: >
+    You should go to the project website and analyze the project requirements, constraints, and risks to develop a summary.
+    Additionally, you should assess the complexity of the project (0-10), resources needed (time, tools, budget), and any gaps that may need to be addressed.
+    Lastly, you should tag the project with relevant keywords (can be multiple) to help with future searches.
+    Project information {project}
+
+  expected_output: >
+    A JSON formatted summary of the project containing information on the project 

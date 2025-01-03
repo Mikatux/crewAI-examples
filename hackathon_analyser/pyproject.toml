@@ -1,0 +1,27 @@
+[project]
+name = "hackathon_analyser"
+version = "0.1.0"
+description = "reddit content creator using crewAI"
+authors = [
+    { name = "Mikatux" },
+]
+requires-python = ">=3.10,<=3.13"
+dependencies = [
+    "firebase-admin",
+    "requests",
+    "waitress",
+    "flask",
+    "google.generativeai",
+    "crewai[tools]>=0.86.0,<1.0.0",
+]
+
+[project.scripts]
+run_http = "hackathon_analyser.main:run_http"
+kickoff = "hackathon_analyser.main:kickoff"
+plot = "hackathon_analyser.main:plot"
+
+[build-system]
+requires = [
+    "hatchling",
+]
+build-backend = "hatchling.build"
