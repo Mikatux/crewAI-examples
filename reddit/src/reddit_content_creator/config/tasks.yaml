@@ -26,4 +26,4 @@ rewrite_content:
     Make it sound like someone talking to a friend in simple terms.
     Keep the key points but strip away any unnecessary words
   expected_output: >
-    A high-quality content in markdown format that is easy to read and understand.
+    A high-quality content in markdown format (without using the code tag) that is easy to read and understand.
